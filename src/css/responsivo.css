@@ -54,31 +54,66 @@ main .personagem .imagem{
 }
 
 
-@media (max-width: 425px){
-    main .personagem .imagem{
+@media (max-width: 425px) {
+    
+    main .personagem .imagem {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .conteudo {
+        position: relative;
+        top: -20%;
+        padding: 12px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .botoes {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 16px;
+        position: relative;
+        top: -10%;
+    }
+
+    .botoes .botao {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: background-color 0.3s ease;
+    }
+
+    .botoes .botao img {
+        max-width: 40px;
+        max-height: 40px;
+        object-fit: contain;
+    }
+
+    .botoes .botao.selecionado {
+        background-color: #007bff;
+    }
+
+    .botoes .botao.selecionado img {
+        filter: brightness(0) invert(1); /* deixa o ícone branco */
+    }
+
+    .personagens {
         height: auto;
     }
 
-    .conteudo{
-        top: -20%;
-
+    .personagem {
+        padding: 16px;
+        font-size: 14px;
     }
-
-    .botoes{
-        padding: 20px;
-        top: -10%;
-
-    }
-
-    .botoes .botao{
-        width: 50px;
-        height: 50px;
-    }
-
-    .botoes .botao img{
-        max-width: 50px;
-    }
-
-    
-
 }
