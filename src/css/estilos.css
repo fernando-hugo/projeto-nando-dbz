@@ -1,6 +1,6 @@
 body {
     background-color: #000000;
-    overflow: hidden;
+    overflow-x: hidden;
 
 }
 
@@ -19,7 +19,7 @@ main::after {
 
 main .personagem {
     display: none;
-    height: 100vh;
+    height: 100dvh;
     
 }
 
@@ -42,7 +42,7 @@ main .personagem .imagem {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    height: 100dvh;
     max-width: 380px;
     z-index: 1;
 }
@@ -74,7 +74,7 @@ main .personagem .imagem {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 100dvh;
     gap: 16px;
 
 }
@@ -120,7 +120,63 @@ main .personagem .imagem {
     box-shadow: 0 0 10px #fff047;
 }
 
-
+@media (max-width: 768px) {
+    main::after {
+      display: none; /* Esconde a sombra lateral */
+    }
+  
+    .conteudo {
+      position: static;
+      padding: 20px;
+      text-align: center;
+      align-items: center;
+      margin-top: 20px;
+      max-width: 100%;
+    }
+  
+    .conteudo .nome-personagem {
+      font-size: 32px;
+    }
+  
+    .conteudo .descricao {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  
+    .botoes {
+      position: fixed;
+      bottom: 0;
+      top: auto;
+      right: 0;
+      left: 0;
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      gap: 12px;
+      z-index: 2;
+    }
+  
+    .botoes .botao {
+      width: 60px;
+      height: 60px;
+    }
+  
+    main .personagem {
+      height: auto;
+    }
+  
+    main .personagem .imagem {
+      height: 100vh;
+      width: 100vw;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
 
 
 
