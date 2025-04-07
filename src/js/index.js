@@ -1,33 +1,51 @@
-// Seleciona todos os botões e personagens do DOM
-const botoes = document.querySelectorAll('.botao');
-const personagens = document.querySelectorAll('.personagem');
+// Seleciona todos os botões de personagem
+const botoes = document.querySelectorAll(".botao");
+// Seleciona todos os personagens
+const personagens = document.querySelectorAll(".personagem");
 
-// Associa um evento de clique a cada botão
+// Adiciona o evento de clique em cada botão
 botoes.forEach((botao, indice) => {
-    botao.addEventListener("click", () => {
-        
-        // Remove a seleção do botão atualmente ativo
-        removerSelecao('.botao.selecionado');
+	botao.addEventListener("click", () => {
+		removerSelecaoBotao();
+		selecionarBotao(botao);
 
-        // Adiciona a classe 'selecionado' ao botão clicado
-        botao.classList.add("selecionado");
-        
-        // Remove a seleção do personagem atualmente exibido
-        removerSelecao('.personagem.selecionado');
-
-        // Exibe o personagem correspondente ao botão clicado
-        personagens[indice].classList.add("selecionado");
-    });
+		removerSelecaoPersonagem();
+		selecionarPersonagem(indice);
+	});
 });
 
 /**
- * Função utilitária para remover a classe 'selecionado'
- * de um elemento atualmente selecionado.
- * @param {string} seletor - seletor CSS do item selecionado
+ * Remove a classe "selecionado" do botão que está atualmente selecionado
  */
-function removerSelecao(seletor) {
-    const itemSelecionado = document.querySelector(seletor);
-    if (itemSelecionado) {
-        itemSelecionado.classList.remove("selecionado");
-    }
+function removerSelecaoBotao() {
+	const botaoSelecionado = document.querySelector(".botao.selecionado");
+	if (botaoSelecionado) {
+		botaoSelecionado.classList.remove("selecionado");
+	}
+}
+
+/**
+ * Adiciona a classe "selecionado" ao botão clicado
+ * @param {Element} botao - Botão que foi clicado
+ */
+function selecionarBotao(botao) {
+	botao.classList.add("selecionado");
+}
+
+/**
+ * Remove a classe "selecionado" do personagem atualmente exibido
+ */
+function removerSelecaoPersonagem() {
+	const personagemSelecionado = document.querySelector(".personagem.selecionado");
+	if (personagemSelecionado) {
+		personagemSelecionado.classList.remove("selecionado");
+	}
+}
+
+/**
+ * Adiciona a classe "selecionado" ao personagem correspondente ao botão clicado
+ * @param {number} indice - Índice do botão clicado, que corresponde ao personagem
+ */
+function selecionarPersonagem(indice) {
+	personagens[indice].classList.add("selecionado");
 }
